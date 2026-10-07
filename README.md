@@ -222,7 +222,7 @@ venv\Scripts\activate
 Install the required Python packages:
 
 ``` bash
-pip install -r linear/requirements.txt
+pip install -r requirements.txt
 ```
 
 The main dependencies include:
