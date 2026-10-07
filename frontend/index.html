@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7fb">
+  <title>ML Prediction Hub</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="page-header">
+      <div class="brand-mark" aria-hidden="true">ML</div>
+      <div>
+        <p class="eyebrow">MODEL WORKSPACE</p>
+        <h1>ML Prediction Hub</h1>
+        <p class="subtitle">Machine Learning Models — Regression &amp; Classification</p>
+      </div>
+    </header>
+
+    <section class="model-picker" aria-labelledby="model-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">GET STARTED</p>
+          <h2 id="model-heading">Choose a model</h2>
+        </div>
+        <p class="section-note">Select a model to enter its prediction details.</p>
+      </div>
+
+      <div class="model-options" role="group" aria-label="Prediction model">
+        <button class="model-card is-selected" type="button" id="house-tab"
+          aria-controls="house-panel" aria-pressed="true" data-model="house">
+          <span class="card-icon house-icon" aria-hidden="true">⌂</span>
+          <span class="card-copy">
+            <strong>House Price Prediction</strong>
+            <span>Linear Regression</span>
+          </span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="model-card" type="button" id="mushroom-tab"
+          aria-controls="mushroom-panel" aria-pressed="false" data-model="mushroom">
+          <span class="card-icon mushroom-icon" aria-hidden="true">✳</span>
+          <span class="card-copy">
+            <strong>Mushroom Classification</strong>
+            <span>Decision Tree Classifier</span>
+          </span>
+          <span class="card-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="prediction-panel" id="house-panel" aria-labelledby="house-heading">
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">LINEAR REGRESSION</p>
+          <h2 id="house-heading">House details</h2>
+          <p class="panel-description">Enter the property features to estimate its price.</p>
+        </div>
+        <span class="model-tag">Model 01</span>
+      </div>
+
+      <form id="house-form">
+        <div class="form-grid">
+          <label class="field">
+            <span>Area <span class="unit">(sq. ft.)</span></span>
+            <input name="area" type="number" min="1" step="any" placeholder="e.g. 2500" required>
+          </label>
+          <label class="field">
+            <span>Bedrooms</span>
+            <input name="bedrooms" type="number" min="1" step="1" placeholder="e.g. 3" required>
+          </label>
+          <label class="field">
+            <span>Bathrooms</span>
+            <input name="bathrooms" type="number" min="1" step="1" placeholder="e.g. 2" required>
+          </label>
+          <label class="field">
+            <span>Stories</span>
+            <input name="stories" type="number" min="1" step="1" placeholder="e.g. 2" required>
+          </label>
+          <label class="field">
+            <span>Mainroad</span>
+            <select name="mainroad" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Guestroom</span>
+            <select name="guestroom" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Basement</span>
+            <select name="basement" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Hotwater Heating</span>
+            <select name="hotwaterheating" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Air Conditioning</span>
+            <select name="airconditioning" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Parking</span>
+            <input name="parking" type="number" min="0" step="1" placeholder="e.g. 1" required>
+          </label>
+          <label class="field">
+            <span>Preferred Area</span>
+            <select name="prefarea" required>
+              <option value="" selected disabled>Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Furnishing Status</span>
+            <select name="furnishingstatus" required>
+              <option value="" selected disabled>Select status</option>
+              <option value="furnished">Furnished</option>
+              <option value="semi-furnished">Semi-furnished</option>
+              <option value="unfurnished">Unfurnished</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <p class="form-hint">All fields are required for a prediction.</p>
+          <button class="submit-button" type="submit">
+            <span>Predict House Price</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+      <div class="result-box" id="house-result" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="prediction-panel" id="mushroom-panel" aria-labelledby="mushroom-heading" hidden>
+      <div class="panel-heading">
+        <div>
+          <p class="eyebrow">DECISION TREE CLASSIFIER</p>
+          <h2 id="mushroom-heading">Mushroom features</h2>
+          <p class="panel-description">Choose the dataset code that matches each feature.</p>
+        </div>
+        <span class="model-tag">Model 02</span>
+      </div>
+
+      <form id="mushroom-form">
+        <div class="form-grid" id="mushroom-fields"></div>
+        <div class="form-actions">
+          <p class="form-hint">All 21 features are required for a prediction.</p>
+          <button class="submit-button" type="submit">
+            <span>Predict Mushroom</span><span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </form>
+      <div class="result-box" id="mushroom-result" aria-live="polite" hidden></div>
+    </section>
+
+    <footer class="page-footer">
+      <span>ML Prediction Hub</span>
+      <span>Predictions are generated by the connected models.</span>
+    </footer>
+  </main>
+</body>
+</html>
