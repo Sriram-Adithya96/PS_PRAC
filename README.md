@@ -309,36 +309,14 @@ Uvicorn running on http://127.0.0.1:8001
 ------------------------------------------------------------------------
 
 # 🌐 3️⃣ Run the Frontend
+Open Terminal 3:
+cd C:\Users\srira\OneDrive\Desktop\ps_prac\frontend
 
-The frontend is built using:
+Start the frontend using Python's built-in HTTP server:
+python -m http.server 5500
 
--   HTML
--   CSS
--   JavaScript
-
-Go to:
-
-``` text
-frontend/
-```
-
-Open:
-
-``` text
-frontend/index.html
-```
-
-in a web browser.
-
-You can also use the **Live Server extension in VS Code**.
-
-### Using Live Server
-
-1.  Open `frontend/index.html`
-2.  Right-click the file
-3.  Select **Open with Live Server**
-4.  The frontend will open in your browser
-
+Open the following URL in your browser:
+http://127.0.0.1:5500
 The frontend communicates with:
 
 ``` text
